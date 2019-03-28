@@ -424,4 +424,16 @@
   <data name="RequestTimeout" xml:space="preserve">
     <value>请求超时</value>
   </data>
+  <data name="ThemeComboBoxDark" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="ThemeComboBoxLight" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="ThemeComboBoxSystem" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="ThemeTitle.Text" xml:space="preserve">
+    <value>主题</value>
+  </data>
 </root>

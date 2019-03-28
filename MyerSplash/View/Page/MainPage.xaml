@@ -8,6 +8,7 @@
     xmlns:cc="using:MyerSplashCustomControl"
     xmlns:common="using:MyerSplash.Common"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converter="using:MyerSplash.Converter"
     xmlns:cu="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fcu="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
@@ -23,6 +24,10 @@
             <attach:InvokeCommandByKeyDown Command="{x:Bind MainVM.SearchCommand}" PressedKey="F6" />
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
+    <Page.Resources>
+        <converter:CompactCollapsedConverter x:Key="CompactCollapsedConverter" />
+        <converter:CompactVisibleConverter x:Key="CompactVisibleConverter" />
+    </Page.Resources>
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="90" />
@@ -33,6 +38,8 @@
             Grid.Row="0"
             Grid.RowSpan="2"
             Background="{Binding Source={StaticResource AppSettings}, Path=MainPageBackgroundBrush, Mode=OneWay}">
+            <Border Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" Visibility="{Binding Source={StaticResource AppSettings}, Path=EnableCompactMode, Mode=OneWay, Converter={StaticResource CompactCollapsedConverter}}" />
+            <Border Background="{ThemeResource SystemChromeMediumLowColor}" Visibility="{Binding Source={StaticResource AppSettings}, Path=EnableCompactMode, Mode=OneWay, Converter={StaticResource CompactVisibleConverter}}" />
             <uc:ImageListControl
                 x:Name="ListControl"
                 d:IsHidden="True"
@@ -76,7 +83,10 @@
         <Grid
             x:Name="TitleBarBackgroundPlaceholder"
             VerticalAlignment="Stretch"
-            Background="{Binding Source={StaticResource AppSettings}, Path=MainTopNavigationBackgroundBrush, Mode=OneWay}" />
+            Background="{Binding Source={StaticResource AppSettings}, Path=MainTopNavigationBackgroundBrush, Mode=OneWay}">
+            <Border Background="{ThemeResource SystemControlChromeLowAcrylicWindowBrush}" Visibility="{Binding Source={StaticResource AppSettings}, Path=EnableCompactMode, Mode=OneWay, Converter={StaticResource CompactCollapsedConverter}}" />
+            <Border Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}" Visibility="{Binding Source={StaticResource AppSettings}, Path=EnableCompactMode, Mode=OneWay, Converter={StaticResource CompactVisibleConverter}}" />
+        </Grid>
         <Grid
             x:Name="DummyTitleBar"
             Height="30"

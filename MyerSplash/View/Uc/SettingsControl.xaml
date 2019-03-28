@@ -207,6 +207,24 @@
                             Style="{StaticResource ComboBoxItemStyle}" />
                     </ComboBox>
                     <TextBlock
+                        x:Uid="ThemeTitle"
+                        Style="{StaticResource SettingItemTextBlockStyle}"
+                        Text="Theme" />
+                    <ComboBox SelectedIndex="{Binding Source={StaticResource AppSettings}, Path=ThemeMode, Mode=TwoWay}" Style="{StaticResource SettingItemComboBoxStyle}">
+                        <ComboBoxItem
+                            x:Uid="ThemeComboBoxLight"
+                            Content="Light"
+                            Style="{StaticResource ComboBoxItemStyle}" />
+                        <ComboBoxItem
+                            x:Uid="ThemeComboBoxDark"
+                            Content="Dark"
+                            Style="{StaticResource ComboBoxItemStyle}" />
+                        <ComboBoxItem
+                            x:Uid="ThemeComboBoxSystem"
+                            Content="System"
+                            Style="{StaticResource ComboBoxItemStyle}" />
+                    </ComboBox>
+                    <TextBlock
                         Style="{StaticResource SettingItemTextBlockStyle}"
                         Text="Theme mode"
                         Visibility="Collapsed" />

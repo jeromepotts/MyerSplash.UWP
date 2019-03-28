@@ -108,12 +108,6 @@ namespace MyerSplash.View.Page
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            TitleBarHelper.SetUpDarkTitleBar();
-        }
-
         private async void MainVM_DataUpdated(object sender, EventArgs e)
         {
             await PostScrollToCachedPosition();

@@ -140,6 +140,8 @@
     <Compile Include="Common\WallpaperSettingHelper.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Converter\BoolToVisibilityRevertConverter.cs" />
+    <Compile Include="Converter\CompactCollapsedConverter.cs" />
+    <Compile Include="Converter\CompactVisibleConverter.cs" />
     <Compile Include="View\Uc\Dialog\GestureHintControl.xaml.cs">
       <DependentUpon>GestureHintControl.xaml</DependentUpon>
     </Compile>

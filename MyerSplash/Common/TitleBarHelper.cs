@@ -1,4 +1,5 @@
 ﻿using JP.Utils.UI;
+using System.Diagnostics;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Media;
@@ -7,9 +8,11 @@ namespace MyerSplash.Common
 {
     public static class TitleBarHelper
     {
-        public static void SetupTitleBarColor(bool isLightTheme)
+        public static void SetupTitleBarColor(bool isDarkTheme)
         {
-            if (isLightTheme)
+            Debug.WriteLine($"==============SetupTitleBarColor: {isDarkTheme}");
+
+            if (isDarkTheme)
             {
                 SetUpLightTitleBar();
             }
@@ -19,7 +22,7 @@ namespace MyerSplash.Common
             }
         }
 
-        public static void SetUpDarkTitleBar()
+        private static void SetUpDarkTitleBar()
         {
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
@@ -31,7 +34,7 @@ namespace MyerSplash.Common
             titleBar.ButtonInactiveForegroundColor = Colors.Black;
         }
 
-        public static void SetUpLightTitleBar()
+        private static void SetUpLightTitleBar()
         {
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.BackgroundColor = (App.Current.Resources["TitleBarDarkBrush"] as SolidColorBrush).Color;
